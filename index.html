@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080b18">
+<title>RUDRAVERSE — Music, Tech & Space</title>
+<meta name="description" content="RUDRAVERSE: a personal universe for guitar, robotics, AI and space videos.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+:root{--bg:#080b18;--panel:#10172a;--line:#ffffff20;--text:#f5f7ff;--muted:#a2aec8;--cyan:#73e6ff;--purple:#9c8aff}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px}body{margin:0;background:var(--bg);color:var(--text);font-family:"Space Grotesk",system-ui,sans-serif}
+a{color:inherit;text-decoration:none}button,input,select{font:inherit}button{cursor:pointer;-webkit-tap-highlight-color:transparent}
+.navbar{height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 6%;border-bottom:1px solid var(--line);background:#080b18ed;position:sticky;top:0;z-index:5;backdrop-filter:blur(14px)}
+.logo{font-weight:700;font-size:19px;letter-spacing:1.5px}.logo span{color:var(--cyan)}.logo i{color:var(--purple);font-style:normal;margin-left:4px}.nav-link{color:var(--cyan);font-size:13px}
+.hero{position:relative;isolation:isolate;overflow:hidden;padding:90px 7% 45px;background:radial-gradient(ellipse at 80% 25%,#322c7050,transparent 40%),radial-gradient(ellipse at 15% 70%,#07506a26,transparent 45%)}
+.hero>*:not(.orb){position:relative;z-index:1}.orb{position:absolute;z-index:-1;border:1px solid #73e6ff30;border-radius:50%;pointer-events:none;animation:drift 8s ease-in-out infinite alternate}.orb.one{width:230px;height:230px;right:-70px;top:40px;box-shadow:inset 0 0 45px #725dff18,0 0 55px #725dff10}.orb.two{width:100px;height:100px;right:20%;top:70px;border-color:#9c8aff55;animation-delay:-3s}
+@keyframes drift{to{transform:translateY(18px) rotate(12deg)}}
+.eyebrow{color:var(--cyan);font-size:10px;letter-spacing:2.5px;line-height:1.8}.hero h1{font-size:clamp(43px,9vw,76px);line-height:1.07;letter-spacing:-2.5px;margin:24px 0}.hero h1 span,.section h2 span,.upload-section h2 span{color:var(--cyan)}.hero-copy{max-width:470px;color:var(--muted);font-size:14px;line-height:1.9}
+.btn{display:inline-block;border:0;border-radius:8px;padding:13px 17px;background:var(--cyan);color:#07101c;font-weight:700;font-size:13px;text-align:center}.stats{display:flex;gap:36px;margin-top:60px}.stats div{display:grid;gap:5px}.stats strong{font-size:25px}.stats span{color:var(--muted);font-size:9px;letter-spacing:1.5px}
+.section,.upload-section,.about{padding:60px 7%}.section h2,.upload-section h2,.about h2{font-size:clamp(27px,5vw,40px);letter-spacing:-1px;margin:8px 0 20px}
+.categories{display:flex;gap:9px;overflow-x:auto;padding:8px 0 18px}.filter{flex:0 0 auto;border:1px solid var(--line);background:var(--panel);color:var(--muted);border-radius:30px;padding:10px 15px;font-size:12px}.filter.active{background:var(--cyan);border-color:var(--cyan);color:#07101c}
+.tools{display:flex;align-items:center;gap:12px;margin:12px 0 20px}.tools input,.form input,.form select{min-width:0;width:100%;padding:13px;border:1px solid var(--line);border-radius:9px;outline:none;color:var(--text);background:var(--panel)}.tools input:focus,.form input:focus{border-color:var(--cyan)}#count{flex:0 0 auto;color:var(--muted);font-size:11px}
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{min-width:0;overflow:hidden;border:1px solid var(--line);border-radius:13px;background:var(--panel)}.card video,.art{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;background:#10182c}.art{display:grid;place-items:center;font-size:42px;background:radial-gradient(circle at 50% 50%,#364c7860,transparent 65%),#11172b}.info{padding:13px}.tag{color:var(--cyan);font-size:9px;letter-spacing:1.5px;text-transform:uppercase}.info h3{font-size:15px;margin:9px 0;overflow-wrap:anywhere}.info p{color:var(--muted);font-size:12px;line-height:1.6;margin-bottom:0}.delete{margin-top:12px;border:1px solid #ff85854c;color:#ff9c9c;background:transparent;border-radius:7px;padding:8px 10px;font-size:11px}.empty{color:var(--muted);text-align:center;padding:25px 0}.hidden{display:none!important}
+.upload-section{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:radial-gradient(ellipse at 85% 30%,#39307922,transparent 55%)}.upload-box{display:flex;align-items:center;flex-direction:column;gap:12px;text-align:center;padding:28px 15px;margin-top:25px;border:1px dashed #73e6ff65;border-radius:13px;background:#73e6ff06;cursor:pointer}.upload-box span:not(.btn){color:var(--muted);font-size:11px;line-height:1.7}.upload-icon{font-size:36px;color:var(--cyan)}#file{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.form{display:grid;gap:10px;margin-top:22px}.form label{margin-top:8px;font-size:12px;color:var(--muted)}.form select option{background:var(--panel)}.note{color:var(--muted);font-size:11px;line-height:1.7;overflow-wrap:anywhere}.btn:disabled{opacity:.4;cursor:not-allowed}
+.about{text-align:center}.about>p:last-child{max-width:490px;margin:0 auto;color:var(--muted);font-size:13px;line-height:1.9}footer{padding:25px 7%;display:flex;align-items:center;justify-content:space-between;gap:15px;border-top:1px solid var(--line)}footer p{color:var(--muted);font-size:10px}
+@media(min-width:900px){.hero{padding-top:125px;padding-bottom:75px}.gallery{grid-template-columns:repeat(3,minmax(0,1fr))}.upload-section{display:grid;grid-template-columns:1fr 1fr;align-items:start;gap:20px 45px}.upload-box{margin-top:0}.form{grid-column:2}}
+@media(max-width:420px){.navbar{padding:0 5%}.logo{font-size:16px}.nav-link{font-size:11px}.hero,.section,.upload-section,.about{padding-left:5%;padding-right:5%}.gallery{gap:9px}.info{padding:10px}.info h3{font-size:13px}.stats{gap:23px}.stats strong{font-size:22px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="navbar">
+  <a class="logo" href="#">RUDRA<span>VERSE</span><i>✦</i></a>
+  <a class="nav-link" href="#videos">Explore videos ↗</a>
+</header>
+<main>
+<section class="hero">
+  <div class="orb one"></div><div class="orb two"></div>
+  <p class="eyebrow">MUSIC · TECHNOLOGY · THE COSMOS</p>
+  <h1>One Mind.<br><span>Infinite Worlds.</span></h1>
+  <p class="hero-copy">From guitar strings to distant galaxies. Welcome to my universe of creativity and discovery.</p>
+  <a class="btn" href="#videos">Explore my universe ↓</a>
+  <div class="stats"><div><strong>04</strong><span>UNIVERSES</span></div><div><strong>∞</strong><span>POSSIBILITIES</span></div><div><strong>01</strong><span>CREATOR</span></div></div>
+</section>
+<section class="section" id="videos">
+  <p class="eyebrow">THE COLLECTION</p><h2>Explore the <span>universe.</span></h2>
+  <div class="categories" id="categories">
+    <button class="filter active" data-category="All">All</button><button class="filter" data-category="Guitar">🎸 Guitar</button><button class="filter" data-category="Robotics">🤖 Robotics</button><button class="filter" data-category="AI">🧠 AI</button><button class="filter" data-category="Space">🚀 Space</button>
+  </div>
+  <div class="tools"><input id="search" type="search" placeholder="Search videos and projects..." aria-label="Search videos"><span id="count">4 items</span></div>
+  <div class="gallery" id="gallery"></div><p class="empty hidden" id="empty">No videos found. Try another category.</p>
+</section>
+<section class="upload-section" id="upload">
+  <div><p class="eyebrow">YOUR CREATOR STUDIO</p><h2>Bring your work<br><span>into the universe.</span></h2><p class="hero-copy">Choose a video from your phone to preview it in your gallery.</p></div>
+  <label class="upload-box" for="file"><span class="upload-icon">↑</span><strong>Choose a video</strong><span>Pick a video saved on your device</span><span class="btn">Select from device</span></label>
+  <input id="file" type="file" accept="video/*">
+  <div class="form">
+    <label for="title">Video title</label><input id="title" maxlength="100" placeholder="e.g. My first robotics project">
+    <label for="category">Category</label><select id="category"><option>Guitar</option><option>Robotics</option><option>AI</option><option>Space</option></select>
+    <p id="selected" class="note">No file selected.</p>
+    <button id="publish" class="btn" disabled>Add to my gallery ↗</button>
+    <p class="note">Demo mode: this previews your video in this open page only. It is not uploaded to the internet or saved permanently.</p><p id="status" role="status" class="note"></p>
+  </div>
+</section>
+<section class="about"><p class="eyebrow">BEHIND THE UNIVERSE</p><h2>Curiosity has no limits.</h2><p>A personal space for music, engineering, artificial intelligence and exploring the universe.</p></section>
+</main>
+<footer><a class="logo" href="#">RUDRA<span>VERSE</span><i>✦</i></a><p>Made with curiosity · 2026</p></footer>
+<script>
+const gallery=document.getElementById('gallery'),search=document.getElementById('search'),count=document.getElementById('count'),empty=document.getElementById('empty');
+const fileInput=document.getElementById('file'),titleInput=document.getElementById('title'),categoryInput=document.getElementById('category'),selected=document.getElementById('selected'),publish=document.getElementById('publish'),status=document.getElementById('status');
+const icons={Guitar:'🎸',Robotics:'🤖',AI:'🧠',Space:'🚀'};
+let selectedVideo=null,activeCategory='All',nextId=5;
+const videos=[
+{id:1,title:'Guitar Covers',category:'Guitar',description:'My musical journey starts here.',demo:true},
+{id:2,title:'Robotics Lab',category:'Robotics',description:'Experiments, circuits and builds.',demo:true},
+{id:3,title:'AI Experiments',category:'AI',description:'Exploring artificial intelligence.',demo:true},
+{id:4,title:'Space Discoveries',category:'Space',description:'A journey beyond Earth.',demo:true}
+];
+function render(){
+ const term=search.value.trim().toLowerCase();
+ const filtered=videos.filter(v=>(activeCategory==='All'||v.category===activeCategory)&&[v.title,v.category,v.description].some(x=>x.toLowerCase().includes(term)));
+ gallery.replaceChildren();count.textContent=`${filtered.length} item${filtered.length===1?'':'s'}`;empty.classList.toggle('hidden',filtered.length!==0);
+ filtered.forEach(v=>{
+  const card=document.createElement('article');card.className='card';
+  if(v.demo){const art=document.createElement('div');art.className='art';art.textContent=icons[v.category]||'✦';card.appendChild(art)}
+  else{const player=document.createElement('video');player.src=v.url;player.controls=true;player.playsInline=true;player.preload='metadata';player.setAttribute('aria-label',v.title);card.appendChild(player)}
+  const info=document.createElement('div');info.className='info';const tag=document.createElement('span');tag.className='tag';tag.textContent=`${icons[v.category]} ${v.category}`;
+  const h=document.createElement('h3');h.textContent=v.title;const p=document.createElement('p');p.textContent=v.description;info.append(tag,h,p);
+  if(v.demo){const note=document.createElement('p');note.textContent='Your videos can go here.';info.appendChild(note)}
+  else{const del=document.createElement('button');del.className='delete';del.textContent='Remove video';del.addEventListener('click',()=>{const i=videos.findIndex(x=>x.id===v.id);if(i!==-1){URL.revokeObjectURL(videos[i].url);videos.splice(i,1)}render()});info.appendChild(del)}
+  card.appendChild(info);gallery.appendChild(card);
+ });
+}
+document.querySelectorAll('.filter').forEach(b=>b.addEventListener('click',()=>{activeCategory=b.dataset.category;document.querySelectorAll('.filter').forEach(x=>x.classList.toggle('active',x===b));render()}));
+search.addEventListener('input',render);
+fileInput.addEventListener('change',()=>{
+ selectedVideo=fileInput.files[0]||null;
+ if(!selectedVideo){selected.textContent='No file selected.';publish.disabled=true;return}
+ if(!selectedVideo.type.startsWith('video/')){selectedVideo=null;fileInput.value='';selected.textContent='Please choose a valid video file.';publish.disabled=true;return}
+ selected.textContent=`${selectedVideo.name} · ${(selectedVideo.size/1048576).toFixed(1)} MB`;
+ if(!titleInput.value.trim())titleInput.value=selectedVideo.name.replace(/\.[^/.]+$/,'');
+ publish.disabled=false;status.textContent='';
+});
+publish.addEventListener('click',()=>{
+ if(!selectedVideo)return;const title=titleInput.value.trim();if(!title){status.textContent='Please enter a video title.';titleInput.focus();return}
+ const url=URL.createObjectURL(selectedVideo);videos.unshift({id:nextId++,title,category:categoryInput.value,description:'Added from this device.',url,demo:false});
+ activeCategory='All';document.querySelectorAll('.filter').forEach(b=>b.classList.toggle('active',b.dataset.category==='All'));search.value='';render();
+ status.textContent='Added to this page. Not publicly uploaded.';selectedVideo=null;fileInput.value='';titleInput.value='';selected.textContent='No file selected.';publish.disabled=true;
+ document.getElementById('videos').scrollIntoView({behavior:'smooth'});
+});
+render();
+</script>
+</body>
+</html>
